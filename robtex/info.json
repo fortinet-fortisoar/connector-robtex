@@ -1,0 +1,93 @@
+{
+    "name": "robtex",
+    "version": "1.0.0",
+    "label": "Robtex",
+    "description": "Robtex uses various sources to gather public information about IP numbers, domain names, host names, autonomous systems, routes, etc., doing data forensics, investigating competitors, tracking spammers, hackers, or hackers or a virus.This connector facilitates automated operations to pull forward and reverse of an IP number and an AS number together with GEO-location data and network data.",
+    "publisher": "spryIQ.co",
+    "icon_small_name": "robtex_32x32.png",
+    "icon_large_name": "robtex_80x80.png",
+    "cs_compatible": true,
+    "cs_approved": false,
+    "category": "Threat Detection",
+    "help_online": "https://github.com/jitesh-spryiq/connector-robtex/blob/develop/docs/RobtexConnectorDoc.md",
+    "configuration": {
+        "fields": [
+            {
+                "title": "Server URL",
+                "type": "text",
+                "description": "URL of the robtex connector to access the connector website.",
+                "tooltip": "URL of the robtex connector to access the connector website.",
+                "name": "server",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "freeapi.robtex.com",
+                "placeholder": "e.g: https://freeapi.robtex.com or freeapi.robtex.com"
+            }
+        ]
+    },
+    "operations": [
+        {
+            "title": "Get IP Query Details",
+            "operation": "get_ip_query_details",
+            "description": "Retrieved information includes the current forward and reverse of an IP number, together with GEO-location data and network data.",
+            "annotation": "ip_query_details",
+            "category": "investigation",
+            "output_schema": [
+                {
+                    "status": "",
+                    "act": [],
+                    "acth": [],
+                    "pas": [],
+                    "pash": [],
+                    "city": "",
+                    "country": " ",
+                    "as": "",
+                    "asname": "",
+                    "whoisdesc": "",
+                    "routedesc": "",
+                    "bgproute": ""
+                }
+            ],
+            "parameters": [
+                {
+                    "title": "IP Address",
+                    "type": "text",
+                    "name": "ip_address",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "199.19.54.1",
+                    "placeholder": "e.g:199.19.54.1",
+                    "description": "Required IP addresses whose geolocation data needs to be retrieved.",
+                    "tooltip": "Required IP addresses whose geolocation data needs to be retrieved."
+                }
+            ]
+        },
+        {
+            "title": "Get Autonomous System Query Details",
+            "operation": "get_autonomous_system_query_details",
+            "description": "The ASN allows autonomous systems to exchange routing information with other autonomous systems.",
+            "category": "investigation",
+            "annotation": "autonomous_system_query_details",
+            "output_schema": {
+                "status": "",
+                "nets": []
+            },
+            "parameters": [
+                {
+                    "title": "Autonomous System Number",
+                    "type": "text",
+                    "name": "autonomous_system_number",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "1234",
+                    "placeholder": "eg:1234",
+                    "description": "Autonomous System Number (ASN) is a globally unique identifier that defines a group of one or more IP prefixes run by one or more network operators.",
+                    "tooltip": "Autonomous System Number is required for retrieving an array of networks related to a specific AS number."
+                }
+            ]
+        }
+    ]
+}
