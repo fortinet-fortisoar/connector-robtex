@@ -1,0 +1,183 @@
+{
+    "type": "workflow_collections",
+    "data": [
+        {
+            "uuid": "80ffe84b-e29a-4c7b-8148-d1b24883553a",
+            "@type": "WorkflowCollection",
+            "name": "Sample - Robtex - 1.0.0",
+            "description": "Robtex uses various sources to gather public information about IP numbers, domain names, host names, autonomous systems, routes, etc., doing data forensics, investigating competitors, tracking spammers, hackers, or hackers or a virus.This connector facilitates automated operations to pull forward and reverse of an IP number and an AS number together with GEO-location data and network data.",
+            "visible": true,
+            "image": null,
+            "recordTags": [
+                "Robtex",
+                "robtex"
+            ],
+            "workflows": [
+                {
+                    "@type": "Workflow",
+                    "uuid": "59888c92-1e0a-4dcf-83ab-aa183cc59786",
+                    "collection": "/api/3/workflow_collections/80ffe84b-e29a-4c7b-8148-d1b24883553a",
+                    "triggerLimit": null,
+                    "description": "Retrieved information includes the current forward and reverse of an IP number, together with GEO-location data and network data.",
+                    "name": "Get IP Query Details",
+                    "tag": "#Robtex",
+                    "recordTags": [
+                        "Robtex",
+                        "robtex"
+                    ],
+                    "isActive": false,
+                    "debug": false,
+                    "singleRecordExecution": false,
+                    "parameters": [],
+                    "synchronous": false,
+                    "triggerStep": "/api/3/workflow_steps/4bd4a024-8ab1-4a9a-b38d-d8838a9bd969",
+                    "steps": [
+                        {
+                            "uuid": "4bd4a024-8ab1-4a9a-b38d-d8838a9bd969",
+                            "@type": "WorkflowStep",
+                            "name": "Start",
+                            "description": null,
+                            "status": null,
+                            "arguments": {
+                                "route": "44ac583e-9f3d-4664-afec-7bf5c4298d4c",
+                                "title": "Robtex: Get IP Query Details",
+                                "resources": [
+                                    "alerts"
+                                ],
+                                "inputVariables": [],
+                                "step_variables": {
+                                    "input": {
+                                        "records": "{{vars.input.records[0]}}"
+                                    }
+                                },
+                                "singleRecordExecution": false,
+                                "noRecordExecution": true,
+                                "executeButtonText": "Execute"
+                            },
+                            "left": "20",
+                            "top": "20",
+                            "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+                        },
+                        {
+                            "uuid": "5e22a198-02c4-4971-aed6-fc6830a5e929",
+                            "@type": "WorkflowStep",
+                            "name": "Get IP Query Details",
+                            "description": null,
+                            "status": null,
+                            "arguments": {
+                                "name": "Robtex",
+                                "config": "''",
+                                "params": {
+                                    "ip_address": "199.19.54.1"
+                                },
+                                "version": "1.0.0",
+                                "connector": "robtex",
+                                "operation": "get_ip_query_details",
+                                "operationTitle": "Get IP Query Details",
+                                "step_variables": {
+                                    "output_data": "{{vars.result}}"
+                                }
+                            },
+                            "left": "188",
+                            "top": "120",
+                            "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+                        }
+                    ],
+                    "routes": [
+                        {
+                            "@type": "WorkflowRoute",
+                            "uuid": "72756a0b-a263-4eb1-80d5-24d28f79b588",
+                            "label": null,
+                            "isExecuted": false,
+                            "name": "Start-> Get IP Query Details",
+                            "sourceStep": "/api/3/workflow_steps/4bd4a024-8ab1-4a9a-b38d-d8838a9bd969",
+                            "targetStep": "/api/3/workflow_steps/5e22a198-02c4-4971-aed6-fc6830a5e929"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Workflow",
+                    "uuid": "3868cefd-a07f-4113-b579-eede18dbfc74",
+                    "collection": "/api/3/workflow_collections/80ffe84b-e29a-4c7b-8148-d1b24883553a",
+                    "triggerLimit": null,
+                    "description": "The ASN allows autonomous systems to exchange routing information with other autonomous systems.",
+                    "name": "Get Autonomous System Query Details",
+                    "tag": "#Robtex",
+                    "recordTags": [
+                        "Robtex",
+                        "robtex"
+                    ],
+                    "isActive": false,
+                    "debug": false,
+                    "singleRecordExecution": false,
+                    "parameters": [],
+                    "synchronous": false,
+                    "triggerStep": "/api/3/workflow_steps/613f9202-3d76-4132-b37d-fa101919f31a",
+                    "steps": [
+                        {
+                            "uuid": "613f9202-3d76-4132-b37d-fa101919f31a",
+                            "@type": "WorkflowStep",
+                            "name": "Start",
+                            "description": null,
+                            "status": null,
+                            "arguments": {
+                                "route": "3d58da2f-66c5-47f3-aaaf-0fbc52e2fdfa",
+                                "title": "Robtex: Get Autonomous System Query Details",
+                                "resources": [
+                                    "alerts"
+                                ],
+                                "inputVariables": [],
+                                "step_variables": {
+                                    "input": {
+                                        "records": "{{vars.input.records[0]}}"
+                                    }
+                                },
+                                "singleRecordExecution": false,
+                                "noRecordExecution": true,
+                                "executeButtonText": "Execute"
+                            },
+                            "left": "20",
+                            "top": "20",
+                            "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+                        },
+                        {
+                            "uuid": "ceeb6c18-e90e-4d8b-8bf2-e64940c9b9ae",
+                            "@type": "WorkflowStep",
+                            "name": "Get Autonomous System Query Details",
+                            "description": null,
+                            "status": null,
+                            "arguments": {
+                                "name": "Robtex",
+                                "config": "''",
+                                "params": {
+                                    "autonomous_system_number": "1234"
+                                },
+                                "version": "1.0.0",
+                                "connector": "robtex",
+                                "operation": "get_autonomous_system_query_details",
+                                "operationTitle": "Get Autonomous System Query Details",
+                                "step_variables": {
+                                    "output_data": "{{vars.result}}"
+                                }
+                            },
+                            "left": "188",
+                            "top": "120",
+                            "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+                        }
+                    ],
+                    "routes": [
+                        {
+                            "@type": "WorkflowRoute",
+                            "uuid": "fc134f0a-2221-42b0-a6e7-8ed477373bb3",
+                            "label": null,
+                            "isExecuted": false,
+                            "name": "Start-> Get Autonomous System Query Details",
+                            "sourceStep": "/api/3/workflow_steps/613f9202-3d76-4132-b37d-fa101919f31a",
+                            "targetStep": "/api/3/workflow_steps/ceeb6c18-e90e-4d8b-8bf2-e64940c9b9ae"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
